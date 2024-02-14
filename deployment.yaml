@@ -16,4 +16,4 @@ spec:
       containers:
         - name: random-logger
           image: ghcr.io/zeidlos/random-logger:master
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
