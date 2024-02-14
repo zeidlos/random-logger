@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: random-logger
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: random-logger
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: random-logger
+    spec:
+      containers:
+        - name: random-logger
+          image: ghcr.io/zeidlos/random-logger:master
+          imagePullPolicy: IfNotPresent
