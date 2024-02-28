@@ -8,5 +8,6 @@ COPY ./entrypoint.sh /
 USER node
 ENV PORT=8080
 EXPOSE 8080
-ENTRYPOINT ["/entrypoint.sh"]
-CMD [ "100", "5000" ]
+#ENTRYPOINT ["/entrypoint.sh"]
+#CMD [ "100", "5000" ]
+CMD ["/bin/ash", "-c", "node server.js"]
