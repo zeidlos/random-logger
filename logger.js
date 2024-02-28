@@ -1,18 +1,8 @@
-require("dotenv").config();
-const express = require("express");
-const app = express();
-app.get("/", (request, response) => {
-  const today = new Date();
-  const now = today.toTimeString().substring(0, 8);
-  console.log(request); //chop off the timezone information
-  const result = {
-    time: now,
-  };
-  console.info(`Time requested at ${now}`);
-  response.set("Content-Type", "application/json");
-  return response.send(result);
-});
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
-  console.info(`Started on port ${PORT}`);
-});
+const interval = setInterval(function () {
+  console.log("random-logger");
+  console.log(
+    '{"data": {"context": {},"PORT": 4003,"PATH": "/middleware","SENTRY_DSN": "https://abc@host.name/50","LOG_FORMAT": "logstash","LOG_LEVEL": "info","EXT_SYSTEM_URL": "","PROJECT_NAME": "name","K8S_NS": "foobar","SENTRY_CURRENT_ENV": "production"},"tags": {"application": "random-logger","release": "0.0.1","project_name": "random-logger","k8s_ns": "random-logger","type": "configuration"},"level": "info","message": "none"})',
+  );
+}, 5000);
+
+clearInterval(interval);
